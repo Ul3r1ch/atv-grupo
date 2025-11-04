@@ -1,0 +1,16 @@
+package br.com.senai.infob.loja.repositories;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import br.com.senai.infob.loja.models.Usuario;
+
+
+
+@Repository
+public interface UsuarioRepository extends JpaRepository<Usuario, Integer>{
+
+    @Query(value = "select * from dadosUsuario where email = :email", nativeQuery=true) 
+    public  Usuario findByEmail(String email);
+}
+    
