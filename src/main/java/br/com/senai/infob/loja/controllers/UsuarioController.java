@@ -1,6 +1,8 @@
 package br.com.senai.infob.loja.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,7 +25,11 @@ public class UsuarioController {
     @PostMapping("/login")
     public String login(@RequestParam String email, @RequestParam String senha){
     return usuarioService.login(email, senha);
-}
+    }
+    @PutMapping("/atualizar/{id}")
+        public Usuario atualizarUsuario(@PathVariable Integer id, @RequestBody Usuario usuario) {
+            return usuarioService.atualizarUsuario(usuario, id);
+    }
 }
     
 
