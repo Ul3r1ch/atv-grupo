@@ -5,8 +5,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name="endereco")
 public class Endereco {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +22,7 @@ public class Endereco {
     private String localidade;
 
     @Column( name= "cep")
-    private String CEP;
+    private String cep;
 
     @Column( name= "numero")
     private String numero;
@@ -37,12 +39,12 @@ public class Endereco {
     public Endereco() {
     }
 
-    public Endereco(Integer id, String logradouro, String localidade, String cEP, String numero, String complemento,
+    public Endereco(Integer id, String logradouro, String localidade, String cep, String numero, String complemento,
             String bairro, String referencia) {
         this.id = id;
         this.logradouro = logradouro;
         this.localidade = localidade;
-        CEP = cEP;
+        this.cep = cep;
         this.numero = numero;
         this.complemento = complemento;
         this.bairro = bairro;
@@ -73,12 +75,12 @@ public class Endereco {
         this.localidade = localidade;
     }
 
-    public String getCEP() {
-        return CEP;
+    public String getCep() {
+        return cep;
     }
 
-    public void setCEP(String cEP) {
-        CEP = cEP;
+    public void setCep(String cep) {
+        this.cep = cep;
     }
 
     public String getNumero() {
