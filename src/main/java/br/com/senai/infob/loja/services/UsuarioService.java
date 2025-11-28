@@ -36,6 +36,11 @@ public String login(String email, String senha) {
          }
          return null;
     }
+
+       public Usuario getId(Integer id){
+        return usuarioRepository.findById(id).get(); }
+
+    
 }
 
 
